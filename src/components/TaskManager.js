@@ -9,30 +9,30 @@ function TaskManager() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // fetch data from API
+      
     };
     fetchData();
-  }, [tasks]); // Issue 2: Incorrect dependency array for `useEffect`
+  }, [tasks]); 
 
   const handleAddTask = useCallback(() => {
     if (newTask.trim() === '') {
       setFeedback('Task cannot be empty');
       return;
     }
-    setTasks([...tasks, { id: Date.now(), text: newTask, completed: false }]); // Issue 3: Inefficient state updates causing unnecessary re-renders
+    setTasks([...tasks, { id: Date.now(), text: newTask, completed: false }]); 
     setNewTask('');
     setFeedback('Task added successfully');
   }, [newTask, tasks]);
 
   const handleDeleteTask = useCallback((taskId) => {
-    setTasks(tasks.filter(task => task.id !== taskId)); // Issue 3: Inefficient state updates causing unnecessary re-renders
+    setTasks(tasks.filter(task => task.id !== taskId)); 
     setFeedback('Task deleted successfully');
   }, [tasks]);
 
   const handleToggleComplete = useCallback((taskId) => {
     setTasks(tasks.map(task =>
       task.id === taskId ? { ...task, completed: !task.completed } : task
-    )); // Issue 3: Inefficient state updates causing unnecessary re-renders
+    )); 
     setFeedback('Task status updated');
   }, [tasks]);
 
