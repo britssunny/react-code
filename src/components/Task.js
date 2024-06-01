@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 
 function Task({ task, onToggleComplete, onDelete }) {
   return (
     <li className="task-item">
       <span
-        className={task.completed ? 'completed' : ''}
-        onClick={() => onToggleComplete(task.id)}
+        style={{ textDecoration: task.completed ? 'line-through' : 'none' }} 
+        onClick={onToggleComplete}
         aria-label="Toggle task completion"
       >
         {task.text}
       </span>
-      <button onClick={() => onDelete(task.id)} aria-label="Delete task">Delete</button>
+      <button onClick={onDelete ? onDelete : () => {}}>Delete</button> 
     </li>
   );
 }
@@ -23,7 +23,7 @@ Task.propTypes = {
     completed: PropTypes.bool.isRequired,
   }).isRequired,
   onToggleComplete: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
 };
 
 export default Task;

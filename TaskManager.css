@@ -1,4 +1,4 @@
-.app-container {
+.app-containr { 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@
     color: red;
   }
   
-  input[type="text"] {
+  input[type="text"] { 
     width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 10px;
@@ -41,7 +41,7 @@
   }
   
   button:hover {
-    background-color: #ddd;
+    background-color: #ddd; 
   }
   
   .filter-buttons {
